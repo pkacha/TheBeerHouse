@@ -6,6 +6,8 @@ import { NewsletterComponent } from './newsletter/newsletter.component';
 import { PollsComponent } from './polls/polls.component';
 import { ForumsComponent } from './forums/forums.component';
 import { authGuard } from './_guards/auth.guard';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { ServerErrorComponent } from './errors/server-error/server-error.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,7 +22,10 @@ const routes: Routes = [
       { path: 'forums', component: ForumsComponent },
     ],
   },
-  { path: '**', component: HomeComponent, pathMatch: 'full' },
+  //{ path: 'errors', component: TestErr },
+  { path: 'not-found', component: NotFoundComponent },
+  { path: 'server-error', component: ServerErrorComponent },
+  { path: '**', component: NotFoundComponent, pathMatch: 'full' },
 ];
 
 @NgModule({
